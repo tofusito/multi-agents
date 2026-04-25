@@ -2,6 +2,8 @@
 
 This repository is an exploration of multi-agent workflows for different development environments.
 
+**Status**: active research. Start with [`opencode/`](./opencode/README.md), which is the first complete environment in this repo.
+
 The goal is to test practical agent ecosystems that are:
 
 - transparent for the user
