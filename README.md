@@ -24,31 +24,15 @@ Current experiments:
 
 ## Cost Metrics
 
-The repository defines the model-routing policy and includes initial pilot measurements.
+The repository defines a cost-aware model-routing policy and includes an initial routing-efficiency pilot.
 
 Current status:
 
 - Routing strategy: implemented and configured with direct OpenAI model IDs.
-- Real token/model routing measurements: first pilots collected.
+- Real token/model routing measurements: first pilot collected.
 - Baseline comparison against a single strong model: not collected yet.
 
-Pilot run, 2026-04-26:
-
-| Scope | Sessions | Messages | Input | Output | Cache read | Cost |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| OpenCode project stats | 7 | 29 | 79.6K | 9.9K | 194.3K | $0.21 |
-| Five titled test sessions | 5 | - | 61.9K | 6.3K | 155.6K | $0.16 |
-
-The first test sessions covered a simple explanation, README summary, measurement planning, routing review, and LinkedIn-readiness review. They proved that measurement works, but initially used the previously configured default model.
-
-After configuring OpenAI in OpenCode, follow-up tests confirmed:
-
-- default `build` model: `openai/gpt-5.4-mini`
-- delegated planning model: `openai/gpt-5.4`
-- direct OpenAI execution: working
-- explicit planner invocation: working
-
-Worker-routing pilot:
+Pilot result, 2026-04-26:
 
 | Worker | Calls | Input | Output | Heavy model avoided |
 | --- | ---: | ---: | ---: | --- |
@@ -58,13 +42,7 @@ Worker-routing pilot:
 
 In this pilot, 15.7K worker input tokens and 686 worker output tokens were handled without calling `worker-heavy`. Because heavier models normally have higher per-token prices, routing simple and medium work to `worker-lite` and `worker-standard` is the expected cost-saving mechanism.
 
-Detailed report: [Model Routing Efficiency Report](./opencode/reports/model-routing-efficiency-2026-04-26.md).
-
-The intended measurement is:
-
-- compare the actual routed workflow against a hypothetical "strong model for everything" workflow
-- record model used, task type, approximate input/output tokens, and estimated cost
-- publish only measured savings once there are enough representative sessions
+Detailed report, data sources, and limitations: [Model Routing Efficiency Report](./opencode/reports/model-routing-efficiency-2026-04-26.md).
 
 Future experiments can live in their own folders, for example:
 

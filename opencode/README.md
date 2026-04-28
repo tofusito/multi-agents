@@ -29,6 +29,8 @@ The hidden workers are assigned models by expected difficulty. `worker-heavy` is
 
 Routing and cost-efficiency reports live in [`reports/`](./reports/).
 
+This configuration expects OpenAI models to be available in OpenCode. If you use another provider, update `opencode.json` and the agent `model` fields before installing.
+
 ## Planning Flow
 
 For simple requests, OpenCode should answer or act directly.
@@ -62,6 +64,8 @@ opencode/
 │   ├── worker-lite.md
 │   └── worker-standard.md
 ├── opencode.json
+├── reports/
+│   └── model-routing-efficiency-2026-04-26.md
 ├── scripts/
 │   └── install.sh
 └── skills/
