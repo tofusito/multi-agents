@@ -27,6 +27,8 @@ Hidden internal workflow:
 
 The hidden workers are assigned models by expected difficulty. `worker-heavy` is not used by default.
 
+Routing and cost-efficiency reports live in [`reports/`](./reports/).
+
 ## Planning Flow
 
 For simple requests, OpenCode should answer or act directly.
