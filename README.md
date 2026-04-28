@@ -5,6 +5,8 @@ This repository is an exploration of multi-agent workflows for different develop
 In plain language: this is a setup that lets you talk to your coding assistant normally, while a small agent system decides whether the task needs a quick answer, a plan, or delegated work.
 The goal is to make AI-assisted development feel simpler for the human while keeping model cost, context size, and implementation risk under control.
 
+**Status**: active research. Start with [`opencode/`](./opencode/README.md), which is the first complete environment in this repo.
+
 The goal is to test practical agent ecosystems that are:
 
 - transparent for the user
