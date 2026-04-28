@@ -4,6 +4,8 @@ Date: 2026-04-26
 
 This report captures a small OpenCode routing test focused on whether delegated work is handled by cheaper or standard workers instead of the heavy worker.
 
+Data source: OpenCode session exports and the local OpenCode SQLite database, grouping assistant messages by worker agent and recorded token metadata.
+
 ## Summary
 
 Three read-only tests were executed against this repository:
@@ -24,6 +26,17 @@ Observed result:
 - Cache read tokens for workers: 28.7K
 
 The notable result is that all delegated work was handled by `worker-lite` or `worker-standard`. No `worker-heavy` call was needed.
+
+## Measurement Smoke Test
+
+Before the OpenAI OAuth setup was configured, an earlier smoke test verified that OpenCode statistics and session exports could be used for measurement:
+
+| Scope | Sessions | Messages | Input | Output | Cache read | Cost |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| OpenCode project stats | 7 | 29 | 79.6K | 9.9K | 194.3K | $0.21 |
+| Five titled test sessions | 5 | - | 61.9K | 6.3K | 155.6K | $0.16 |
+
+That smoke test used the previously configured default provider, so it should not be interpreted as the cost of the current OpenAI routing setup.
 
 ## Model Routing
 
